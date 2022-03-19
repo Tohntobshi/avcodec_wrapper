@@ -13,7 +13,7 @@ ffmpeg libraries should be installed systemwise, on Ubuntu it can be done this w
 sudo apt install ffmpeg
 ```
 
-`example.cpp` shows how to use it in conjunction with opencv images (which by default are BGR24 encoded arrays of pixels), for `example.cpp` opencv also should be installed, for Ubuntu it can be done like this
+`example.cpp` shows how to use it in conjunction with opencv images (which by default are BGR24 encoded arrays of pixels), for `example.cpp` opencv should also be installed, for Ubuntu it can be done like this:
 
 ```
 sudo apt install libopencv-dev
