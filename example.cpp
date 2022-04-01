@@ -15,7 +15,7 @@ using std::cin;
 
 int main()
 {
-  VideoEncoder encoder(WIDTH, HEIGHT, 150000);
+  VideoEncoder encoder(WIDTH, HEIGHT, 150000, 30);
 
   VideoDecoder decoder(WIDTH, HEIGHT);
 

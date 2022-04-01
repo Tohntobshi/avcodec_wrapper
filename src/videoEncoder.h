@@ -9,7 +9,7 @@ extern "C"
 class VideoEncoder
 {
 public:
-    VideoEncoder(int width, int  height, int bitRate);
+    VideoEncoder(int width, int  height, int bitRate, int fps);
     std::tuple<uint8_t *, int> encode(uint8_t * data, int size);
     ~VideoEncoder();
 private:

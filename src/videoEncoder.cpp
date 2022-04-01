@@ -1,7 +1,7 @@
 #include "videoEncoder.h"
 #include <iostream>
 
-VideoEncoder::VideoEncoder(int w, int h, int bitRate):
+VideoEncoder::VideoEncoder(int w, int h, int bitRate, int fps):
 width(w),
 height(h)
 {
@@ -16,7 +16,7 @@ height(h)
     enC->height = height;
     enC->pix_fmt = AV_PIX_FMT_YUV420P;
     enC->bit_rate = bitRate;
-    enC->time_base = (AVRational){1, 30};
+    enC->time_base = (AVRational){1, fps};
     enC->gop_size = 0;
     if (avcodec_open2(enC, codec, nullptr) < 0)
     {
@@ -81,6 +81,8 @@ std::tuple<uint8_t *, int> VideoEncoder::encode(uint8_t * data, int size)
         {
             std::cout << "receive packet error\n";
         }
+        av_packet_free(&pak);
+        return { nullptr, 0 };
     }
     int outputSize = pak->size;
     uint8_t * outputData = new uint8_t[outputSize];
